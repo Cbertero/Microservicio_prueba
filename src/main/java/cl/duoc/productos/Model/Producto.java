@@ -1,24 +1,29 @@
-package cl.duoc.productos.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package cl.duoc.productos.Model;
+
+import jakarta.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "productos")
 public class Producto {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
-@Column(nullable = false, length = 100)
-private String nombre;
-@Column(length = 255)
-private String descripcion;
-@Column(nullable = false, precision = 12, scale = 2)
-private BigDecimal precio;
-@Column(nullable = false)
 
-public Producto() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 100)
+    private String nombre;
+
+    @Column(length = 255)
+    private String descripcion;
+
+    @Column(nullable = false, precision = 12, scale = 2)
+    private BigDecimal precio;
+
+    @Column(nullable = false)
+    private Integer stock;
+
+    public Producto() {
     }
 
     public Long getId() {
@@ -60,4 +65,4 @@ public Producto() {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
-}   
+}
